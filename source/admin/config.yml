@@ -1,0 +1,69 @@
+backend:
+  name: github
+  repo: 123456Zhe/blog
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+# 媒体文件配置
+media_folder: "source/images/uploads"
+public_folder: "/images/uploads"
+
+# 网站地址（用于预览）
+site_url: https://blog.zhezhe.online
+
+# 发布模式：简单模式（保存即提交）
+publish_mode: simple
+
+# 中文界面
+locale: 'zh_Hans'
+
+# 内容集合配置
+collections:
+  # 博客文章
+  - name: "posts"
+    label: "文章"
+    folder: "source/_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+      preview: true
+    fields:
+      - {label: "标题", name: "title", widget: "string", required: true}
+      - {label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", required: true}
+      - {label: "更新日期", name: "updated", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", required: false}
+      - {label: "分类", name: "categories", widget: "list", required: false}
+      - {label: "标签", name: "tags", widget: "list", required: false}
+      - {label: "置顶", name: "top", widget: "number", default: 0, required: false, hint: "数字越大越靠前，0表示不置顶"}
+      - {label: "封面图", name: "cover", widget: "image", required: false}
+      - {label: "摘要", name: "excerpt", widget: "text", required: false}
+      - {label: "内容", name: "body", widget: "markdown", required: true}
+
+  # 页面
+  - name: "pages"
+    label: "页面"
+    folder: "source"
+    create: true
+    slug: "{{slug}}/index"
+    editor:
+      preview: true
+    fields:
+      - {label: "标题", name: "title", widget: "string", required: true}
+      - {label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", required: true}
+      - {label: "更新日期", name: "updated", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss", required: false}
+      - {label: "类型", name: "type", widget: "select", options: ["about", "link", "message", "custom"], default: "about", required: false}
+      - {label: "内容", name: "body", widget: "markdown", required: true}
+
+  # 草稿
+  - name: "drafts"
+    label: "草稿"
+    folder: "source/_drafts"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: true
+    fields:
+      - {label: "标题", name: "title", widget: "string", required: true}
+      - {label: "分类", name: "categories", widget: "list", required: false}
+      - {label: "标签", name: "tags", widget: "list", required: false}
+      - {label: "内容", name: "body", widget: "markdown", required: true}
