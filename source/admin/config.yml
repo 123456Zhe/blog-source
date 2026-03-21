@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: 123456Zhe/blog
+  repo: 123456Zhe/blog-source
   branch: main
   base_url: https://api.netlify.com
   auth_endpoint: auth
