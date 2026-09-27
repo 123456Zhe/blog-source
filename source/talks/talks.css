@@ -1,0 +1,57 @@
+/* 说说 (talks) page — themed for Butterfly, self-hosted (no third-party CDN) */
+
+#talk-wrap { max-width: 760px; margin: 0 auto; padding: 8px 4px 40px; }
+
+.talk-toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; color: #86909c; font-size: 13px; }
+.talk-refresh { cursor: pointer; user-select: none; padding: 4px 12px; border-radius: 999px; border: 1px solid #e3e8ef; background: #fff; transition: all .2s; }
+.talk-refresh:hover { color: #49b1f5; border-color: #49b1f5; }
+
+.talk-card {
+  position: relative;
+  display: flex;
+  gap: 14px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(16,24,40,.04), 0 8px 24px -14px rgba(16,24,40,.16);
+  border: 1px solid #eef1f6;
+  animation: talkIn .35s ease both;
+}
+@keyframes talkIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.talk-avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; flex: 0 0 46px; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+.talk-main { flex: 1 1 auto; min-width: 0; }
+.talk-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+.talk-name { font-weight: 700; font-size: 15px; color: #2b3442; }
+.talk-time { font-size: 12px; color: #a8b0bf; }
+.talk-content { font-size: 15px; line-height: 1.75; color: #3b4252; word-break: break-word; }
+.talk-content p { margin: .35em 0; }
+.talk-content img { max-width: 60%; border-radius: 10px; margin: 8px 0 2px; display: block; }
+.talk-content a { color: #49b1f5; }
+
+.talk-tags { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+.talk-tag { font-size: 12px; color: #4a6dff; background: #eef1ff; padding: 3px 10px; border-radius: 999px; }
+
+.talk-foot { display: flex; justify-content: flex-end; margin-top: 10px; }
+.talk-like { cursor: pointer; display: inline-flex; align-items: center; gap: 5px; font-size: 13px; color: #98a1b3; padding: 4px 10px; border-radius: 999px; transition: all .18s; user-select: none; }
+.talk-like:hover { background: #fdeef1; color: #ef5b7f; }
+.talk-like.liked { color: #ef5b7f; }
+.talk-like .heart { transition: transform .18s ease; }
+.talk-like.liked .heart { transform: scale(1.15); }
+.talk-like.pop .heart { animation: pop .35s ease; }
+@keyframes pop { 0%{transform:scale(1)} 45%{transform:scale(1.5)} 100%{transform:scale(1.1)} }
+
+.talk-more { display: block; width: 100%; margin: 6px auto 0; padding: 11px; text-align: center; color: #49b1f5; background: #fff; border: 1px solid #e3e8ef; border-radius: 12px; cursor: pointer; font-size: 14px; transition: all .2s; }
+.talk-more:hover { border-color: #49b1f5; box-shadow: 0 8px 20px -12px #49b1f5; }
+.talk-state { text-align: center; color: #a8b0bf; padding: 40px 0; font-size: 14px; }
+
+.talk-card--skel { pointer-events: none; }
+.talk-skel-line { height: 12px; border-radius: 6px; background: linear-gradient(90deg,#eef1f6 25%,#f6f8fc 37%,#eef1f6 63%); background-size: 400% 100%; animation: skel 1.3s ease infinite; margin-bottom: 10px; }
+@keyframes skel { 0%{background-position:100% 0} 100%{background-position:-100% 0} }
+
+[data-theme="dark"] .talk-card { background: #1e1e1e; border-color: #2b2b2b; box-shadow: none; }
+[data-theme="dark"] .talk-name { color: #e6e6e6; }
+[data-theme="dark"] .talk-content { color: #c8c8c8; }
+[data-theme="dark"] .talk-refresh,
+[data-theme="dark"] .talk-more { background: #1e1e1e; border-color: #333; }
