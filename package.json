@@ -10,7 +10,7 @@
     "postinstall": "node scripts-tools/patch-hexo-admin.js"
   },
   "hexo": {
-    "version": "8.1.2"
+    "version": "7.3.0"
   },
   "dependencies": {
     "hexo": "^8.1.2",
